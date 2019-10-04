@@ -5,6 +5,7 @@ import android.util.Log;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProviders;
 
 public class MainActivity extends AppCompatActivity {
     private static String TAG = MainActivity.class.getSimpleName();
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.i(TAG, "Owner onCreate");
         getLifecycle().addObserver(new MainActivityObserver());
-        dataGenerator = new MainActivityDataGenerator();
+        dataGenerator = ViewModelProviders.of(this).get(MainActivityDataGenerator.class);
         tvNumber = findViewById(R.id.tvNumber);
         randomN = dataGenerator.getNumber();
         tvNumber.setText(randomN);
