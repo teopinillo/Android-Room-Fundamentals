@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -82,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 String t = data.getStringExtra(NewBookActivity.NEW_BOOK);
                 Book iBook = new Book(id, n, t);
                 bookViewModel.insert(iBook);
-
+                Toast.makeText(getApplicationContext(), R.string.saved, Toast.LENGTH_LONG);
             }
         }
     }

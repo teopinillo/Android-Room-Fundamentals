@@ -6,5 +6,6 @@
     <string name="new_book">New Book</string>
     <string name="random_number">Random Number</string>
     <string name="fetch">Fetch</string>
+    <string name="saved">Saved</string>
 
 </resources>
