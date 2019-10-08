@@ -1,5 +1,6 @@
 package com.philodroid.livecycleawaredemo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,13 +13,17 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 //@href https://developer.android.com/topic/libraries/architecture/livedata
 public class MainActivity extends AppCompatActivity {
+    private static final int NEW_NOTE_ACTIVITY_REQUEST_CODE = 9;
     private static String TAG = MainActivity.class.getSimpleName();
     private MainActivityViewModel model;
     private TextView tvNumber;
     private MutableLiveData<String> randomN;
     private Button btFecth;
+    private FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +32,14 @@ public class MainActivity extends AppCompatActivity {
         Log.i(TAG, "Owner onCreate");
         tvNumber = findViewById(R.id.tvNumber);
         btFecth = findViewById(R.id.btFetch);
-
+        fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intentAddBook = new Intent(getApplicationContext(), NewBookActivity.class);
+                startActivityForResult(intentAddBook, NEW_NOTE_ACTIVITY_REQUEST_CODE);
+            }
+        });
         getLifecycle().addObserver(new MainActivityObserver());
 
         final Observer<String> numberObserver = new Observer<String>() {
