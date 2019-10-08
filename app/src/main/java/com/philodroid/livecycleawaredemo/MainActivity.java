@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
                 Intent intentAddBook = new Intent(getApplicationContext(), NewBookActivity.class);
                 startActivityForResult(intentAddBook, NEW_NOTE_ACTIVITY_REQUEST_CODE);
             }
+
+
         });
         getLifecycle().addObserver(new MainActivityObserver());
 
@@ -63,6 +65,15 @@ public class MainActivity extends AppCompatActivity {
         randomN.observe(this, numberObserver);
         tvNumber.setText(randomN.getValue());
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK && requestCode == NEW_NOTE_ACTIVITY_REQUEST_CODE) {
+            if (data.hasExtra(NewBookActivity.NEW_AUTHOR)) {
+
+            }
+        }
     }
 
     @Override
