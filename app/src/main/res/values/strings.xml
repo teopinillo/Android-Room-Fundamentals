@@ -2,7 +2,7 @@
     <string name="app_name">LiveCycle Aware Demo</string>
     <string name="room_demo">Room, ViewModel Demo</string>
     <string name="author_name">Author Name</string>
-    <string name="author_name">Author Name</string>
     <string name="book_title">Book Title</string>
-    <string name="book_title">Book Title</string>
+    <string name="new_book">New Book</string>
+
 </resources>

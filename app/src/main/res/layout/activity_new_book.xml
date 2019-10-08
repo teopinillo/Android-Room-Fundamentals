@@ -7,6 +7,20 @@
     tools:context=".NewBookActivity">
 
     <TextView
+        android:id="@+id/tvNewBook"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:gravity="center_horizontal"
+        android:text="@string/new_book"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/tvAuthorName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -18,16 +32,28 @@
         android:text="@string/author_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tvNewBook" />
 
     <TextView
         android:id="@+id/tvBookTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:hint="@string/book_title"
         android:text="@string/book_title"
         app:layout_constraintEnd_toEndOf="@+id/tvAuthorName"
         app:layout_constraintStart_toStartOf="@+id/tvAuthorName"
         app:layout_constraintTop_toBottomOf="@+id/tvAuthorName" />
+
+    <ImageButton
+        android:id="@+id/btSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_save" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
