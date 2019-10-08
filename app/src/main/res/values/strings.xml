@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">LiveCycleAwaredemo</string>
+    <string name="app_name">LiveCycle Aware Demo</string>
+    <string name="room_demo">Room, ViewModel Demo</string>
 </resources>
