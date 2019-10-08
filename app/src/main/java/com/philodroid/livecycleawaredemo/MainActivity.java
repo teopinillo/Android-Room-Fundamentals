@@ -66,8 +66,12 @@ public class MainActivity extends AppCompatActivity {
         // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
 
         model = ViewModelProviders.of(this).get(MainActivityViewModel.class);
-        bookViewModel = ViewModelProviders.of(this).get(BookViewModel.class);
-
+        try {
+            bookViewModel = ViewModelProviders.of(this).get(BookViewModel.class);
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+            Log.e(TAG, e.getLocalizedMessage());
+        }
         randomN = model.getNumber();
         randomN.observe(this, numberObserver);
         tvNumber.setText(randomN.getValue());
@@ -83,7 +87,9 @@ public class MainActivity extends AppCompatActivity {
                 String t = data.getStringExtra(NewBookActivity.NEW_BOOK);
                 Book iBook = new Book(id, n, t);
                 bookViewModel.insert(iBook);
-                Toast.makeText(getApplicationContext(), R.string.saved, Toast.LENGTH_LONG);
+                Toast.makeText(getApplicationContext(), R.string.saved, Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(getApplicationContext(), R.string.not_saved, Toast.LENGTH_LONG).show();
             }
         }
     }
