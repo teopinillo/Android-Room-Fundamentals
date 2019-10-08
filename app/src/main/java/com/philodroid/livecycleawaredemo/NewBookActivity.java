@@ -17,7 +17,6 @@ public class NewBookActivity extends AppCompatActivity {
     private ImageButton btSave;
     private EditText etAuthor;
     private EditText etBookTitle;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

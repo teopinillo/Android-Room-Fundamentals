@@ -25,5 +25,5 @@ public abstract class BookRoomDatabase extends RoomDatabase {
         instance = null;
     }
 
-    public abstract BookDao bookDao();
+    public abstract BookDAO bookDao();
 }

@@ -15,6 +15,8 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.UUID;
+
 //@href https://developer.android.com/topic/libraries/architecture/livedata
 public class MainActivity extends AppCompatActivity {
     private static final int NEW_NOTE_ACTIVITY_REQUEST_CODE = 9;
@@ -71,7 +73,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK && requestCode == NEW_NOTE_ACTIVITY_REQUEST_CODE) {
             if (data.hasExtra(NewBookActivity.NEW_AUTHOR)) {
-
+                UUID id = UUID.randomUUID();
+                String n = data.getStringExtra(NewBookActivity.NEW_AUTHOR);
+                String t = data.getStringExtra(NewBookActivity.NEW_BOOK);
             }
         }
     }

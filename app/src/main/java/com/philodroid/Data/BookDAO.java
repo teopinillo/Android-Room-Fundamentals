@@ -9,7 +9,7 @@ import androidx.room.Update;
 import java.util.List;
 
 @Dao
-interface BookDao {
+public interface BookDAO {
     /*
     @Insert
     @Update
