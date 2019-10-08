@@ -4,5 +4,7 @@
     <string name="author_name">Author Name</string>
     <string name="book_title">Book Title</string>
     <string name="new_book">New Book</string>
+    <string name="random_number">Random Number</string>
+    <string name="fetch">Fetch</string>
 
 </resources>

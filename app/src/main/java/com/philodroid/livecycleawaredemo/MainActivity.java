@@ -14,6 +14,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.philodroid.Data.Book;
 
 import java.util.UUID;
 
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int NEW_NOTE_ACTIVITY_REQUEST_CODE = 9;
     private static String TAG = MainActivity.class.getSimpleName();
     private MainActivityViewModel model;
+    private BookViewModel bookViewModel;
     private TextView tvNumber;
     private MutableLiveData<String> randomN;
     private Button btFecth;
@@ -41,9 +43,9 @@ public class MainActivity extends AppCompatActivity {
                 Intent intentAddBook = new Intent(getApplicationContext(), NewBookActivity.class);
                 startActivityForResult(intentAddBook, NEW_NOTE_ACTIVITY_REQUEST_CODE);
             }
-
-
         });
+
+
         getLifecycle().addObserver(new MainActivityObserver());
 
         final Observer<String> numberObserver = new Observer<String>() {
@@ -63,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
         // Observe the LiveData, passing in this activity as the LifecycleOwner and the observer.
 
         model = ViewModelProviders.of(this).get(MainActivityViewModel.class);
+        bookViewModel = ViewModelProviders.of(this).get(BookViewModel.class);
+
         randomN = model.getNumber();
         randomN.observe(this, numberObserver);
         tvNumber.setText(randomN.getValue());
@@ -76,6 +80,9 @@ public class MainActivity extends AppCompatActivity {
                 UUID id = UUID.randomUUID();
                 String n = data.getStringExtra(NewBookActivity.NEW_AUTHOR);
                 String t = data.getStringExtra(NewBookActivity.NEW_BOOK);
+                Book iBook = new Book(id, n, t);
+                bookViewModel.insert(iBook);
+
             }
         }
     }

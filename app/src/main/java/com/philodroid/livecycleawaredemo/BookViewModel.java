@@ -25,7 +25,7 @@ public class BookViewModel extends AndroidViewModel {
         new InsertAsyncTask().execute(book);
     }
 
-    class InsertAsyncTask extends AsyncTask<Book, Void, Void> {
+    private class InsertAsyncTask extends AsyncTask<Book, Void, Void> {
 
         @Override
         protected Void doInBackground(Book... books) {
